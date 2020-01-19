@@ -21,9 +21,11 @@
 		$br=$_POST['branch'];
 		$sem=$_POST['semester'];
 		$shft=$_POST['shift'];
+		$date=$_POST['e_date'];
 		echo "$br\r\n";
 		echo "$sem \r\n";
 		echo "$shft \r\n<br>";
+		echo "$date<br>";
 
 	}
 
@@ -120,7 +122,7 @@
 		
 		$attribute="S".$sub."WMS";
 		
-		$sql1="SELECT $attribute FROM project where BRANCH='$br' AND SEMESTER='$sem' AND SHIFT='$shft'and NOT $attribute='ABS' ";
+		$sql1="SELECT $attribute FROM project where BRANCH='$br' AND SEMESTER='$sem' AND SHIFT='$shft'and NOT $attribute='ABS' and E_DATE='$date' ";
 		$res1=$conn-> query($sql1);
 		echo "<td>$res1->num_rows</td>";
 		//marks above 48
