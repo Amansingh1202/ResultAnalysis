@@ -2,6 +2,8 @@
 <html>
 <head>
 	<title></title>
+	<link rel="stylesheet" href="css/stylesheet2">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
 <table border="1">
