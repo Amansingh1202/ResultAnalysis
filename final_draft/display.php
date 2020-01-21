@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
+<img src="images/print.jpeg" onclick="printFunction()" style="margin-top: 2em;margin-left: 120em; width: 4em ;height: 4em">
 <table border="1">
 	<tr>
 		<th><h3>subject</h3></th>
@@ -174,4 +175,11 @@
 
 </table>
 </body>
+<script>
+	function printFunction() {
+
+		window.print();
+
+	}
+	</script>
 </html>
