@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="container-fluid form-group" id="semesterWise">
-<form action="/ResultAnalysis/final_draft/display.php" method="post">
+<form action="/ResultAnalysis/final_draft/display.php" action="start.php" method="post">
 		<h1 align="center">Subject Wise Result Analysis</h1>
 	<div class="row">
 	<div class="col-lg-2 col-md-2">
@@ -37,8 +37,16 @@
 	<select class="form-control" id="FormSelect3" name="shift">
 		<option value="SHIFT" selected>SHIFT</option>
 		<option value="1">First Shift</option>
-		<option value="2">Second Shift</option>
-	</select><br>
+		
+		<?php 
+		$var=$_POST['branch'];
+		if($var!='T' || $var!='I')
+		echo "<option value='2'>Second Shift</option>";
+
+		?>
+
+		
+			</select><br>
 	</div>
 		
 

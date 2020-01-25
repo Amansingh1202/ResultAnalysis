@@ -5,9 +5,17 @@
 	<link rel="stylesheet" href="css/stylesheet2">
     <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
+<style>
+	.center {
+  margin: auto;
+  width: 50%;
+  border: 5px solid white;
+  padding: 10px;
+}
+</style>
 <body>
 <img src="images/print.jpeg" onclick="printFunction()" style="margin-top: 2em;margin-left: 120em; width: 4em ;height: 4em">
-<table border="1">
+<table border="1" class="center">
 	<tr>
 		<th><h3>subject</h3></th>
 		<th><h3>appeared</h3></th>
@@ -25,10 +33,7 @@
 		$sem=$_POST['semester'];
 		$shft=$_POST['shift'];
 		$date=$_POST['e_date'];
-		echo "$br\r\n";
-		echo "$sem \r\n";
-		echo "$shft \r\n<br>";
-		echo "$date<br>";
+		
 
 	}
 
@@ -61,6 +66,7 @@
 				array("BGA","IOE","DPOPT4","ILOPT2","N/A")
 
 			);
+			$br_name="THE DEPARTMENT OF INFORMATION AND TECHNOLOGY ENGINEERING";
 		}
 
 		  elseif($br=="C")
@@ -74,6 +80,8 @@
 				array("HMI","DC","DLPOPT4","ILOPT2","N/A")
 
 			);
+			$br_name="THE DEPARTMENT OF COMPUTER SCIENCE ENGINEERING";
+
 		}
 
 		elseif($br=="I")
@@ -87,6 +95,8 @@
 				array("INSTRU PROJ","N/A","N/A","N/A","N/A")
 
 			);
+			$br_name="THE DEPARTMENT OF INSTRUMENTATION ENGINEERING";
+
 		}
 
 		
@@ -102,6 +112,8 @@
 				array("RFD","WN","DLOPT4","ILOPT2","N/A")
 
 			);
+			$br_name="THE DEPARTMENT OF ELECTRONICS AND TELECOMMUNICATION ENGINEERING";
+
 		}
 
 		elseif($br=="E")
@@ -115,10 +127,12 @@
 				array("IOT","AMVLSI","DLOPT4","ILOPT2","N/A")
 
 			);
+			$br_name="THE DEPARTMENT OF ELECTRONICS ENGINEERING";
+
 		}
 		
-
-
+		if($sub==1)
+		echo "<h3 align='center'><font color='white'>$br_name</font></h3><br>";
 		$arr_sem=$sem-3;
 		$arr_sub=$sub-1;
 		echo "<td>".$sub_array[$arr_sem][$arr_sub]."</td>";
@@ -173,7 +187,17 @@
 
 	?>
 
+
 </table>
+<br><br><br>
+
+<h3>
+	<font color="white">RESULT ANALYSIS CO-ORDINATOR</font>
+</h3>
+<h3 align='right'>
+		<font color="white">HEAD OF DEPARTMENT</font>
+
+</h3>
 </body>
 <script>
 	function printFunction() {
