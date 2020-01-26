@@ -1,36 +1,43 @@
-body{
+body {
     background-image: url("../images/University.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
 }
-label{
+
+label {
     font-size: 1.3em;
     color: #3c3c3c;
 }
-button{
+
+button {
     margin-top: 1.3em;
 }
-h1{
+
+h1 {
     font-size: 2.5em;
     margin-bottom: 1em;
     color: #1b6d85;
 }
-.form-control{
+
+.form-control {
     font-size: 1.25em;
     color: #1b6d85;
     background-color: ghostwhite;
 }
-.btn,btn-primary{
+
+.btn, btn-primary {
     background-color: #1b6d85;
     padding: 0.5em;
     width: 10em;
     font-size: 1.3em;
 }
-.btn:hover{
+
+.btn:hover {
     background-color: #5bc0de;
     color: black;
 }
-#semesterWise{
+
+#semesterWise {
     margin-top: 17em;
 }

@@ -191,13 +191,18 @@
 </table>
 <br><br><br>
 
-<h3>
-	<font color="white">RESULT ANALYSIS CO-ORDINATOR</font>
+<div>
+<div style="float:left;">
+<h3 style="color:white">
+RESULT ANALYSIS CO-ORDINATOR
 </h3>
-<h3 align='right'>
-		<font color="white">HEAD OF DEPARTMENT</font>
-
+</div>
+<div style="float:right;">
+<h3 style="color:white">
+HEAD OF DEPARTMENT
 </h3>
+</div>
+</div>
 </body>
 <script>
 	function printFunction() {
