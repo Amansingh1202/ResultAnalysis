@@ -17,7 +17,6 @@
 
 <body>
 <img src="images/print.jpeg" onclick="printFunction()" style="margin-top: 2em;margin-left: 120em; width: 4em ;height: 4em">
-
 <table border="1" class="center">
 	<tr>
 		<th><h3>class</h3></th>
@@ -53,4 +52,11 @@
 
 
 </body>
+<script>
+	function printFunction() {
+
+		window.print();
+
+	}
+	</script>
 </html>

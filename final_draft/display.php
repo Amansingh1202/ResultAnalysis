@@ -193,12 +193,12 @@
 
 <div>
 <div style="float:left;">
-<h3 style="color:white">
+<h3 style="color:white; margin-left:2em">
 RESULT ANALYSIS CO-ORDINATOR
 </h3>
 </div>
 <div style="float:right;">
-<h3 style="color:white">
+<h3 style="color:white; margin-right:2em">
 HEAD OF DEPARTMENT
 </h3>
 </div>
