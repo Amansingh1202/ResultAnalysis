@@ -3,70 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <script src="jquery-1.4.4.min.js"></script>
-    <script language="JavaScript" type="text/javascript">
-        $(document).ready(function () {
-            var T = [
-                {display: "First Shift", value: "1"},
-            ];
-
-            var C = [
-                {display: "First Shift", value: "1"},
-                {display: "Second Shift", value: "2"},
-            ];
-
-            var X = [
-                {display: "First Shift", value: "1"},
-                {display: "Second Shift", value: "2"},
-            ];
-            var E = [
-                {display: "First Shift", value: "1"},
-                {display: "Second Shift", value: "2"},
-            ];
-            var I = [
-                {display: "First Shift", value: "1"},
-                {display: "Second Shift", value: "2"},
-            ];
-
-//If parent option is changed
-            $("#branch").change(function () {
-                var parent = $(this).val(); //get option value from parent
-
-                switch (parent) { //using switch compare selected option and populate child
-                    case 'T':
-                        list(T);
-                        break;
-                    case 'C':
-                        list(C);
-                        break;
-                    case 'X':
-                        list(X);
-                        break;
-                    case 'E':
-                        list(E);
-                        break;
-                    case 'I':
-                        list(I);
-                        break;
-                    default: //default child option is blank
-                        $("#shift").html('');
-                        break;
-                }
-            });
-
-//function to populate child select box
-            function list(array_list) {
-                $("#shift").html(""); //reset child options
-                $(array_list).each(function (i) { //populate child options
-                    $("#shift").append("<option value=\"" + array_list[i].value + "\">" + array_list[i].display + "</option>");
-                });
-            }
-
-        });
-
-    </script>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/stylesheet1.css" rel="stylesheet">
+    <script src="jquery-1.4.4.min.js"></script>
 </head>
 <body>
 <div class="container-fluid form-group" id="semesterWise">
@@ -74,8 +13,8 @@
         <h1 align="center">Subject Wise Result Analysis</h1>
         <div class="row">
             <div class="col-lg-2 col-md-2">
-                <label for="FormSelect1">BRANCH</label>
-                <select class="form-control" id="FormSelect1" name="branch">
+                <label for="branch">BRANCH</label>
+                <select class="form-control" id="branch" name="branch">
                     <option selected value="BRANCH">BRANCH</option>
                     <option value="C">Computer Science</option>
                     <option value="T">Information n Technology</option>
@@ -96,8 +35,8 @@
                 </select><br>
             </div>
             <div class="col-lg-2 col-md-2">
-                <label for="FormSelect3">SHIFT</label>
-                <select class="form-control" id="FormSelect3" name="shift">
+                <label for="shift">SHIFT</label>
+                <select class="form-control" id="shift" name="shift">
                     <option selected value="SHIFT">SHIFT</option>
                 </select><br>
             </div>
@@ -154,4 +93,62 @@
 
 </div>
 </body>
+<script language="JavaScript" type="text/javascript">
+    $(document).ready(function () {
+        var T = [
+            {display: "First Shift", value: "1"},
+        ];
+
+        var C = [
+            {display: "First Shift", value: "1"},
+            {display: "Second Shift", value: "2"},
+        ];
+
+        var X = [
+            {display: "First Shift", value: "1"},
+            {display: "Second Shift", value: "2"},
+        ];
+        var E = [
+            {display: "First Shift", value: "1"},
+            {display: "Second Shift", value: "2"},
+        ];
+        var I = [
+            {display: "First Shift", value: "1"},
+            {display: "Second Shift", value: "2"},
+        ];
+
+        $("#branch").change(function () {
+            var parent = $(this).val();
+
+            switch (parent) {
+                case 'T':
+                    list(T);
+                    break;
+                case 'C':
+                    list(C);
+                    break;
+                case 'X':
+                    list(X);
+                    break;
+                case 'E':
+                    list(E);
+                    break;
+                case 'I':
+                    list(I);
+                    break;
+                default:
+                    $("#shift").html('');
+                    break;
+            }
+        });
+        function list(array_list) {
+            $("#shift").html("");
+            $(array_list).each(function (i) {
+                $("#shift").append("<option value=\"" + array_list[i].value + "\">" + array_list[i].display + "</option>");
+            });
+        }
+
+    });
+
+</script>
 </html>
