@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
 	<title></title>
@@ -17,20 +17,24 @@
 
 <body>
 <img src="images/print.jpeg" onclick="printFunction()" style="margin-top: 2em;margin-left: 120em; width: 4em ;height: 4em">
-<table border="2" class="center">
+
+<h1 align="center"><font color="white">
+	CLASS WISE RESULT ANALYSIS</font>
+</h1>
+<table border="2" class="center" style="margin-bottom:2em">
 	<tr>
-		<th><h3>class</h3></th>
-		<TH><h3>semester</h3></TH>
-		<TH><h3>appeared</h3></TH>
-		<TH><h3>distinction</h3></TH>
-		<TH><h3>first class</h3></TH>
-		<TH><h3>second class</h3></TH>
-		<TH><h3>total pass</h3></TH>
-		<TH><h3>failed</h3></TH>
-		<TH><h3>total %</h3></TH>
+		<th><h3>Class</h3></th>
+		<TH><h3>Semester</h3></TH>
+		<TH><h3>Appeared</h3></TH>
+		<TH><h3>Distinction</h3></TH>
+		<TH><h3>First class</h3></TH>
+		<TH><h3>Second class</h3></TH>
+		<TH><h3>Total pass</h3></TH>
+		<TH><h3>Failed</h3></TH>
+		<TH><h3>Total Pass %</h3></TH>
 	</tr>
 <?php
-	if(isset($_POST['submit']))
+		if(isset($_POST['submit']))
 	{
 		$br=$_POST["branch"];
 		$e_date=$_POST["e_date"];
@@ -41,79 +45,200 @@
 	{
 		die("connection error".$conn ->connect_error);
 	}
-	$sql1="SELECT C_SG_TOTAL FROM project where BRANCH='$br' and E_DATE='$e_date' and SEMESTER='3' and shift='1'";
-	$res1=$conn-> query($sql1);
-	$appeared=$res1->num_rows;
-	$grade_o=0;
-	$grade_a=0;
-	$grade_b=0;
-	$grade_c=0;
-	$grade_d=0;
-	$grade_e=0;
-	$passed=0;
-	while ($row=$res1->fetch_assoc()) {
-		$cell=$row["C_SG_TOTAL"];
-		$marks=0;
-		for($i=0;$i<=strlen($cell);$i++)
+
+		if ($br=='T' || $br=='I')
 		{
-			if (is_numeric($cell[$i])) {
-				$dig=(int)$cell[$i];
-				$marks=$marks*10+$dig;
-			}
-			else
-			{
-				break;
-			}
+			$shift=1;
+			$span=3;
+		}
+		elseif ($br=='C' || $br=='E' || $br=='X') {
+			$shift=2;
+			$span=6;
 		}
 
-	
-	#formula to find CGPA------------#
-	$cgpi=(($marks/750)-11)/7.25;
-	if($cgpi>=8.5)
-		{$grade_o+=1;}
-	if($cgpi>=7.5 and $cgpi<8.5)
-		{$grade_a+=1;}
-	if($cgpi>=6.5 and $cgpi<7.5)
-		{$grade_b+=1;}
-	if($cgpi>=6 and $cgpi<6.5)
-		{$grade_c+=1;}
-	if($cgpi>=5.5 and $cgpi<6)
-		{$grade_d+=1;}
-	if($cgpi>=5 and $cgpi<5.5)
-		{$grade_e+=1;}
+		if($e_date=="MAY-18")
+		{
+			$sem_array=array(4,6,8);
+		}
+		elseif($e_date=="NOV-17")
+		{
+			$sem_array=array(3,5,7);
+		}
+
+		// -----------------------------------------------------
+		if($br=="T")
+		{
+			$br_name="THE DEPARTMENT OF INFORMATION AND TECHNOLOGY ENGINEERING";
+		}
+
+		  elseif($br=="C")
+		{
+			$br_name="THE DEPARTMENT OF COMPUTER SCIENCE ENGINEERING";
+
+		}
+
+		elseif($br=="I")
+		{
+			$br_name="THE DEPARTMENT OF INSTRUMENTATION ENGINEERING";
+
+		}
 
 
 
-	}
+		elseif($br=="X")
+		{
+			$br_name="THE DEPARTMENT OF ELECTRONICS AND TELECOMMUNICATION ENGINEERING";
 
-	$sql2="SELECT REMARKS FROM project where BRANCH='$br' and E_DATE='$e_date' and SEMESTER='3' and shift='1' ";
-	$res2=$conn->query($sql2);
+		}
 
-	while($row2=$res2->fetch_assoc())
+		elseif($br=="E")
+		{
+			$br_name="THE DEPARTMENT OF ELECTRONICS ENGINEERING";
+
+		}
+
+
+		echo "<h3 align='center'><font color='white'>$br_name</font></h3><br>";
+		// ------------------------------------------------------
+
+
+		function sub_wise($conn,$br,$e_date,$func_sem,$func_shift)
 	{
-		$cell2=$row2['REMARKS'];
-		if($cell2=='P')
-			$passed++;
+		$sql1="SELECT C_SG_TOTAL FROM project where BRANCH='$br' and E_DATE='$e_date' and SEMESTER='$func_sem' and shift='$func_shift'";
+		$res1=$conn-> query($sql1);
+		$appeared=$res1->num_rows;
+		$grade_o=0;
+		$grade_a=0;
+		$grade_b=0;
+		$grade_c=0;
+		$grade_d=0;
+		$grade_e=0;
+		$passed=0;
+
+		switch($func_sem)
+		{
+			case 3:
+			$sem_str="III";
+			break;
+
+			case 4:
+			$sem_str="IV";
+			break;
+
+			case 5:
+			$sem_str="V";
+			break;
+
+			case 6:
+			$sem_str="VI";
+			break;
+
+			case 7:
+			$sem_str="VII";
+			break;
+
+			case 8:
+			$sem_str="VIII";
+			break;
+			default:
+			$sem_str="INVALID";
+
+		}
+
+		if ($func_shift==1)
+		{
+			$shift_str="First Shift";
+		}
+		else
+		{
+			$shift_str="Second Shift";
+		}
+
+
+
+		while ($row=$res1->fetch_assoc()) {
+			$cell=$row["C_SG_TOTAL"];
+			$marks=0;
+			for($i=0;$i<=strlen($cell);$i++)
+			{
+				if (is_numeric($cell[$i])) {
+					$dig=(int)$cell[$i];
+					$marks=$marks*10+$dig;
+				}
+				else
+				{
+					break;
+				}
+			}
+
+
+		#formula to find CGPA------------#
+		$cgpi=(($marks*100/750)-11)/7.25;
+		if($cgpi>=8.5)
+			{$grade_o+=1;}
+		if($cgpi>=7.5 and $cgpi<8.5)
+			{$grade_a+=1;}
+		if($cgpi>=6.5 and $cgpi<7.5)
+			{$grade_b+=1;}
+		if($cgpi>=6 and $cgpi<6.5)
+			{$grade_c+=1;}
+		if($cgpi>=5.5 and $cgpi<6)
+			{$grade_d+=1;}
+		if($cgpi>=5 and $cgpi<5.5)
+			{$grade_e+=1;}
+
+
+
+		}
+
+		$sql2="SELECT REMARKS FROM project where BRANCH='$br' and E_DATE='$e_date' and SEMESTER='$func_sem' and shift='$func_shift' ";
+		$res2=$conn->query($sql2);
+
+		while($row2=$res2->fetch_assoc())
+		{
+			$cell2=$row2['REMARKS'];
+			if($cell2=='P')
+				$passed++;
+		}
+		$fail=$appeared-$passed;
+		$pass_percent=$passed*100/$appeared;
+
+
+
+			echo "<td rowspan='3'>($sem_str)$shift_str</td>";
+			echo "<td rowspan='3'>$appeared</td>";
+			echo "<td>Grade O:$grade_o</td>";
+			echo "<td rowspan='3'>Grade C:$grade_c</td>";
+			echo "<td>Grade D:$grade_d</td>";
+			echo "<td rowspan='3'>$passed</td>";
+			echo "<td rowspan='3'>$fail</td>";
+
+			#empty cell for %pass percent
+			echo "<td rowspan='3'>";
+			printf("%0.2f",$pass_percent);
+			echo"</td></tr>";
+
+			echo "<tr><td>Grade A:$grade_a</td>";
+			echo "<td>Grade E:$grade_e</td></tr>";
+			echo "<tr><td>Grade B:$grade_b</td>";
+			echo "<td></td></tr>";
 	}
-	$fail=$appeared-$passed;
+	echo "<tr><td rowspan='$span'>Second Year</td>";
+	sub_wise($conn,$br,$e_date,$sem_array[0],1);
+	if($shift==2)
+	sub_wise($conn,$br,$e_date,$sem_array[0],2);
 
+	echo"<tr><td rowspan='$span'>Third Year</td>";
 
-		echo "<tr><td rowspan='6'>Second Year</td>";
-		echo "<td rowspan='3'>(III)First Shift</td>";
-		echo "<td rowspan='3'>$appeared</td>";
-		echo "<td>Grade O:$grade_o</td>";
-		echo "<td rowspan='3'>Grade C:$grade_c</td>";
-		echo "<td>Grade D:$grade_d</td>";
-		echo "<td rowspan='3'>$passed</td>";
-		echo "<td rowspan='6'>$fail</td>";
+	sub_wise($conn,$br,$e_date,$sem_array[1],1);
+	if($shift==2)
+	sub_wise($conn,$br,$e_date,$sem_array[1],2);
 
-		#empty cell for %pass percent
-		echo "<td rowspan='6'></td></tr>";
+	// echo"<tr><td rowspan='6'>Fourth Year</td>";
 
-		echo "<tr><td>Grade A:$grade_a</td>";
-		echo "<td>Grade E:$grade_e</td></tr>";
-		echo "<tr><td>Grade B:$grade_b</td>";
-		echo "<td></td></tr>";
+	// sub_wise($conn,$br,$e_date,$sem_array[2],1);
+	// if($shift==2)
+	// sub_wise($conn,$br,$e_date,$sem_array[2],2);
 ?>
 
 

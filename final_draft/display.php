@@ -17,28 +17,28 @@
 <img src="images/print.jpeg" onclick="printFunction()" style="margin-top: 2em;margin-left: 120em; width: 4em ;height: 4em">
 <table border="1" class="center">
 	<tr>
-		<th><h3>subject</h3></th>
-		<th><h3>appeared</h3></th>
-		<th><h3>above 48</h3></th>
-		<th><h3>btw 32 n 48</h3></th>
-		<th><h3>pass</h3></th>
-		<th><h3>fail</h3></th>
-		<th><h3>percentage</h3></th>
+		<th><h3>Subject</h3></th>
+		<th><h3>Appeared</h3></th>
+		<th><h3>Above 48</h3></th>
+		<th><h3>Btw 32 n 48</h3></th>
+		<th><h3>Pass</h3></th>
+		<th><h3>Fail</h3></th>
+		<th><h3>Percentage</h3></th>
 
 	</tr>
-	<?php 
+	<?php
 	if (isset($_POST['submit']))
 	{
 		$br=$_POST['branch'];
 		$sem=$_POST['semester'];
 		$shft=$_POST['shift'];
 		$date=$_POST['e_date'];
-		
+
 
 	}
 
 	$conn=mysqli_connect("localhost","root", "new_password","project");
-	
+
 	$i=0;
 	if($conn -> connect_error)
 	{
@@ -46,7 +46,7 @@
 	}
 	$sub=1;
 	while($sub<=5)
-	{	
+	{
 		$above_48=0;
 		$pass=0;
 		$fail=0;
@@ -99,7 +99,7 @@
 
 		}
 
-		
+
 
 		elseif($br=="X")
 		{
@@ -130,15 +130,15 @@
 			$br_name="THE DEPARTMENT OF ELECTRONICS ENGINEERING";
 
 		}
-		
+
 		if($sub==1)
 		echo "<h3 align='center'><font color='white'>$br_name</font></h3><br>";
 		$arr_sem=$sem-3;
 		$arr_sub=$sub-1;
 		echo "<td>".$sub_array[$arr_sem][$arr_sub]."</td>";
-		
+
 		$attribute="S".$sub."WMS";
-		
+
 		$sql1="SELECT $attribute FROM project where BRANCH='$br' AND SEMESTER='$sem' AND SHIFT='$shft'and NOT $attribute='ABS' and E_DATE='$date' ";
 		$res1=$conn-> query($sql1);
 		echo "<td>$res1->num_rows</td>";
@@ -152,16 +152,16 @@
 					$dig=(int)$cell[$i];
 					$marks=$marks*10+$dig;
 				}
-				else 
+				else
 				{
 					break;
 				}
 			}
 			if ($marks>48)
 			{
-				$above_48+=1;			
+				$above_48+=1;
 			}
-			elseif ($marks>32 && $marks<=48) 
+			elseif ($marks>32 && $marks<=48)
 			{
 				$bet32_48+=1;
 			}
