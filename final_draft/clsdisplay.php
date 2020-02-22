@@ -56,11 +56,11 @@
 			$span=6;
 		}
 
-		if($e_date=="MAY-18")
+		if(strpos($e_date,"MAY") !== false)
 		{
 			$sem_array=array(4,6,8);
 		}
-		elseif($e_date=="NOV-17")
+		else
 		{
 			$sem_array=array(3,5,7);
 		}
@@ -245,8 +245,20 @@
 
 
 </table>
+<br><br><br>
 
-
+<div>
+<div style="float:left;">
+<h3 style="color:white; margin-left:2em">
+RESULT ANALYSIS CO-ORDINATOR
+</h3>
+</div>
+<div style="float:right;">
+<h3 style="color:white; margin-right:2em">
+HEAD OF DEPARTMENT
+</h3>
+</div>
+</div>
 </body>
 <script>
 	function printFunction() {
