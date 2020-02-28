@@ -6,12 +6,20 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <style>
-	.center {
-  margin: auto;
-  width: 50%;
-  border: 5px solid white;
-  padding: 10px;
+.center {
+	margin: auto;
+	width: 50%;
+	border: 5px solid white;
+	padding: 10px;
 }
+
+td{
+	background-color:rosybrown;
+}
+table{
+	font-size:0.9em;
+}
+
 </style>
 <body>
 <img src="images/print.jpeg" onclick="printFunction()" style="margin-top: 2em;margin-left: 120em; width: 4em ;height: 4em">
