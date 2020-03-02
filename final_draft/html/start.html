@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="container-fluid form-group" id="semesterWise">
-    <form action="/ResultAnalysis/final_draft/display.php" action="start.php" method="post">
+    <form action="/ResultAnalysis/final_draft/display.php" action="start.php" method="post" id='ResultForm'>
         <h1 align="center">Subject Wise Result Analysis</h1>
         <div class="row">
             <div class="col-lg-2 col-md-2">
@@ -94,6 +94,25 @@
 </div>
 </body>
 <script language="JavaScript" type="text/javascript">
+    $(function(){
+    	$("#ResultForm").validate({
+    		rules:{
+    			e_date:{
+    				required:true
+    			}
+    			branch:{
+    				required:true
+    			}
+    			shift:{
+    				required:true
+    			}
+    			semester:{
+    				required:true
+    			}
+    			
+    		}
+    	});
+    });
     $(document).ready(function () {
         var T = [
             {display: "First Shift", value: "1"},
