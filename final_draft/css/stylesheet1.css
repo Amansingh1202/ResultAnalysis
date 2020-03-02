@@ -41,3 +41,7 @@ h1 {
 #semesterWise {
     margin-top: 17em;
 }
+label.error{
+	color:red;
+	font-family:verdana;
+}
