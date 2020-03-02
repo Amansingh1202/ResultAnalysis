@@ -13,6 +13,15 @@
   border: 5px solid white;
   padding: 10px;
 }
+table{
+	font-size:0.9em;
+}
+th,td{
+	padding:0.2em;
+}
+.grd{
+	font-size: 1.25em;
+}
 </style>
 
 <body>
@@ -27,7 +36,7 @@
 		<TH><h3>Semester</h3></TH>
 		<TH><h3>Appeared</h3></TH>
 		<TH><h3>Distinction</h3></TH>
-		<TH><h3>First class</h3></TH>
+		<TH><h3>First class  </h3></TH>
 		<TH><h3>Second class</h3></TH>
 		<TH><h3>Total pass</h3></TH>
 		<TH><h3>Failed</h3></TH>
@@ -207,10 +216,10 @@
 
 			echo "<td rowspan='3'>($sem_str)$shift_str</td>";
 			echo "<td rowspan='3'>$appeared</td>";
-			echo "<td>Grade O:$grade_o</td>";
-			echo "<td rowspan='3'>Grade C:$grade_c</td>";
-			echo "<td>Grade D:$grade_d</td>";
-			echo "<td rowspan='3'>$passed</td>";
+			echo "<td class='grd'>Grade O:$grade_o</td>";
+			echo "<td class='grd' rowspan='3'>Grade C:$grade_c</td>";
+			echo "<td class='grd'>Grade D:$grade_d</td>";
+			echo "<td cl rowspan='3'>$passed</td>";
 			echo "<td rowspan='3'>$fail</td>";
 
 			#empty cell for %pass percent
@@ -218,9 +227,9 @@
 			printf("%0.2f",$pass_percent);
 			echo"</td></tr>";
 
-			echo "<tr><td>Grade A:$grade_a</td>";
-			echo "<td>Grade E:$grade_e</td></tr>";
-			echo "<tr><td>Grade B:$grade_b</td>";
+			echo "<tr><td class='grd'>Grade A:$grade_a</td>";
+			echo "<td class='grd'>Grade E:$grade_e</td></tr>";
+			echo "<tr><td class='grd'>Grade B:$grade_b</td>";
 			echo "<td></td></tr>";
 	}
 	echo "<tr><td rowspan='$span'>Second Year</td>";

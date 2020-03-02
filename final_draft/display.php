@@ -13,8 +13,8 @@
 	padding: 10px;
 }
 
-td{
-	background-color:rosybrown;
+th{
+	background-color: #804ba6;
 }
 table{
 	font-size:0.9em;
@@ -22,7 +22,7 @@ table{
 
 </style>
 <body>
-<img src="images/print.jpeg" onclick="printFunction()" style="margin-top: 2em;margin-left: 120em; width: 4em ;height: 4em">
+<img src="images/print.jpeg" onclick="printFunction()" style="margin-top: 2em;margin-left: 90em; width: 4em ;height: 4em">
 <table border="1" class="center">
 	<tr>
 		<th><h3>Subject</h3></th>
