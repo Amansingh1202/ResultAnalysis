@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="container-fluid form-group" id="semesterWise">
-    <form action="/ResultAnalysis/final_draft/display.php" action="start.php" method="post" id='ResultForm'>
+    <form action="/ResultAnalysis/final_draft/display.php" action="start.php" id='ResultForm' method="post">
         <h1 align="center">Subject Wise Result Analysis</h1>
         <div class="row">
             <div class="col-lg-2 col-md-2">
@@ -53,8 +53,9 @@
                     <option value="NOV-19">NOVEMBER-2019</option>
                 </select><br>
             </div>
-            <div class="col-lg-2 col-md-2">
+            <div class="col-lg-2 col-md-2 group1">
                 <button class="btn btn-primary" name="submit" type="submit">Get Values</button>
+                <button class="btn btn-primary" name="submit_graph1" type="submit">Get Graph</button>
             </div>
         </div>
 
@@ -86,8 +87,10 @@
                     <option value="NOV-17">NOVEMBER-2017</option>
                 </select><br>
             </div>
-            <div class="col-lg-2 col-md-2">
-                <button class="btn btn-primary" name="submit" type="submit">Get Values</button>
+            <div class="col-lg-2 col-md-2 group2">
+                <button class="btn btn-primary set2" name="submit" type="submit">Get Values</button>
+                <button class="btn btn-primary set2" name="submit_graph2" type="submit">Get Graph</button>
+
             </div>
         </div>
 
@@ -97,25 +100,6 @@
 </div>
 </body>
 <script language="JavaScript" type="text/javascript">
-    // $(function(){
-    // 	$("#ResultForm").validate({
-    // 		rules:{
-    // 			e_date:{
-    // 				required:true
-    // 			}
-    // 			branch:{
-    // 				required:true
-    // 			}
-    // 			shift:{
-    // 				required:true
-    // 			}
-    // 			semester:{
-    // 				required:true
-    // 			}
-    			
-    // 		}
-    // 	});
-    // });
     $(document).ready(function () {
         var T = [
             {display: "First Shift", value: "1"},
@@ -136,7 +120,7 @@
         ];
         var I = [
             {display: "First Shift", value: "1"},
-            
+
         ];
 
         $("#branch").change(function () {
@@ -163,6 +147,7 @@
                     break;
             }
         });
+
         function list(array_list) {
             $("#shift").html("");
             $(array_list).each(function (i) {
@@ -172,6 +157,6 @@
 
     });
 
-    
+
 </script>
 </html>

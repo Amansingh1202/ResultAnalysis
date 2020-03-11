@@ -12,6 +12,7 @@ label {
 
 button {
     margin-top: 1.3em;
+    margin-left: 1.3em;
 }
 
 h1 {
@@ -25,7 +26,16 @@ h1 {
     color: #1b6d85;
     background-color: ghostwhite;
 }
-
+.group1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.group2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .btn, btn-primary {
     background-color: #1b6d85;
     padding: 0.5em;
@@ -41,7 +51,8 @@ h1 {
 #semesterWise {
     margin-top: 17em;
 }
-label.error{
-	color:red;
-	font-family:verdana;
+
+label.error {
+    color: red;
+    font-family: verdana;
 }
