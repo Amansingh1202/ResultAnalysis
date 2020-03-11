@@ -49,7 +49,8 @@ th,td{
 		$e_date=$_POST["e_date"];
 	}
 	$conn=mysqli_connect("localhost","root","new_password","project");
-
+	$graph_array[6];
+	$graph_array_count=0;
 	if ($conn ->connect_error)
 	{
 		die("connection error".$conn ->connect_error);
@@ -114,6 +115,10 @@ th,td{
 		function sub_wise($conn,$br,$e_date,$func_sem,$func_shift)
 	{
 		$sql1="SELECT C_SG_TOTAL FROM project where BRANCH='$br' and E_DATE='$e_date' and SEMESTER='$func_sem' and shift='$func_shift'";
+		if($func_sem=="7" || $func_sem=="8")
+		{
+			$sql1="SELECT TOTAL FROM final_year WHERE SHIFT ='$func_shift' AND SEMESTER='$func_sem' " ;
+		}
 		$res1=$conn-> query($sql1);
 		$appeared=$res1->num_rows;
 		$grade_o=0;
@@ -167,6 +172,8 @@ th,td{
 
 		while ($row=$res1->fetch_assoc()) {
 			$cell=$row["C_SG_TOTAL"];
+			if($func_sem=='7' || $func_sem=='8')
+			{$cell=$row["TOTAL"];}
 			$marks=0;
 			for($i=0;$i<=strlen($cell);$i++)
 			{
@@ -181,31 +188,38 @@ th,td{
 			}
 
 
-		#formula to find CGPA------------#
-		$cgpi=(($marks*100/750)-11)/7.25;
-		if($cgpi>=8.5)
-			{$grade_o+=1;}
-		if($cgpi>=7.5 and $cgpi<8.5)
-			{$grade_a+=1;}
-		if($cgpi>=6.5 and $cgpi<7.5)
-			{$grade_b+=1;}
-		if($cgpi>=6 and $cgpi<6.5)
-			{$grade_c+=1;}
-		if($cgpi>=5.5 and $cgpi<6)
-			{$grade_d+=1;}
-		if($cgpi>=5 and $cgpi<5.5)
-			{$grade_e+=1;}
-
-
+			#formula to find CGPA------------#
+			$cgpi=(($marks*100/750)-11)/7.25;
+			if($cgpi>=9.5)
+				{$grade_o+=1;}
+			if($cgpi>=8.5 and $cgpi<9.5)
+				{$grade_a+=1;}
+			if($cgpi>=7.5 and $cgpi<8.5)
+				{$grade_b+=1;}
+			if($cgpi>=6.5 and $cgpi<7.5)
+				{$grade_c+=1;}
+			if($cgpi>=5.5 and $cgpi<6.5)
+				{$grade_d+=1;}
+			if($cgpi>=4.5 and $cgpi<5.5)
+				{$grade_e+=1;}
 
 		}
 
+	
+
 		$sql2="SELECT REMARKS FROM project where BRANCH='$br' and E_DATE='$e_date' and SEMESTER='$func_sem' and shift='$func_shift' ";
+		if($func_sem=="7" || $func_sem=="8")
+		{
+			$sql2="SELECT REMARK from final_year where SHIFT='$func_shift' AND SEMESTER='$func_sem' ";
+		}
+
 		$res2=$conn->query($sql2);
 
 		while($row2=$res2->fetch_assoc())
 		{
 			$cell2=$row2['REMARKS'];
+			if($func_sem=="7" || $func_sem=="8")
+				{$cell2=$row2['REMARK'];}
 			if($cell2=='P')
 				$passed++;
 		}
@@ -231,23 +245,30 @@ th,td{
 			echo "<td class='grd'>Grade E:$grade_e</td></tr>";
 			echo "<tr><td class='grd'>Grade B:$grade_b</td>";
 			echo "<td></td></tr>";
+			$pass_percent=number_format($pass_percent,2,".","");
+			return $pass_percent;
 	}
 	echo "<tr><td rowspan='$span'>Second Year</td>";
-	sub_wise($conn,$br,$e_date,$sem_array[0],1);
+	
+	$graph_array[$graph_array_count++]= sub_wise($conn,$br,$e_date,$sem_array[0],1);
 	if($shift==2)
-	sub_wise($conn,$br,$e_date,$sem_array[0],2);
+	$graph_array[$graph_array_count++]= sub_wise($conn,$br,$e_date,$sem_array[0],2);
 
 	echo"<tr><td rowspan='$span'>Third Year</td>";
 
-	sub_wise($conn,$br,$e_date,$sem_array[1],1);
+	$graph_array[$graph_array_count++]= sub_wise($conn,$br,$e_date,$sem_array[1],1);
 	if($shift==2)
-	sub_wise($conn,$br,$e_date,$sem_array[1],2);
+	$graph_array[$graph_array_count++]= sub_wise($conn,$br,$e_date,$sem_array[1],2);
 
-	// echo"<tr><td rowspan='6'>Fourth Year</td>";
+	echo"<tr><td rowspan='6'>Fourth Year</td>";
 
-	// sub_wise($conn,$br,$e_date,$sem_array[2],1);
-	// if($shift==2)
-	// sub_wise($conn,$br,$e_date,$sem_array[2],2);
+	$graph_array[$graph_array_count++]=sub_wise($conn,$br,$e_date,$sem_array[2],1);
+	if($shift==2)
+	$graph_array[$graph_array_count++]=sub_wise($conn,$br,$e_date,$sem_array[2],2);
+	for($j=0;$j<$graph_array_count;$j++)
+	{
+		echo"$graph_array[$j] ";
+	}
 ?>
 
 

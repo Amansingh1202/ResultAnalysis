@@ -31,6 +31,8 @@
                     <option value="4">Sem IV</option>
                     <option value="5">Sem V</option>
                     <option value="6">Sem VI</option>
+                    <option value="7">Sem VII</option>
+                    <option value="8">Sem VIII</option>
 
                 </select><br>
             </div>
@@ -48,6 +50,7 @@
                     <option selected value="EXAM DATE">EXAM DATE</option>
                     <option value="MAY-18">MAY-2018</option>
                     <option value="NOV-17">NOVEMBER-2017</option>
+                    <option value="NOV-19">NOVEMBER-2019</option>
                 </select><br>
             </div>
             <div class="col-lg-2 col-md-2">
@@ -94,25 +97,25 @@
 </div>
 </body>
 <script language="JavaScript" type="text/javascript">
-    $(function(){
-    	$("#ResultForm").validate({
-    		rules:{
-    			e_date:{
-    				required:true
-    			}
-    			branch:{
-    				required:true
-    			}
-    			shift:{
-    				required:true
-    			}
-    			semester:{
-    				required:true
-    			}
+    // $(function(){
+    // 	$("#ResultForm").validate({
+    // 		rules:{
+    // 			e_date:{
+    // 				required:true
+    // 			}
+    // 			branch:{
+    // 				required:true
+    // 			}
+    // 			shift:{
+    // 				required:true
+    // 			}
+    // 			semester:{
+    // 				required:true
+    // 			}
     			
-    		}
-    	});
-    });
+    // 		}
+    // 	});
+    // });
     $(document).ready(function () {
         var T = [
             {display: "First Shift", value: "1"},
@@ -169,5 +172,6 @@
 
     });
 
+    
 </script>
 </html>
