@@ -27,6 +27,7 @@ table{
 </style>
 <body>
 	<img src="images/print.jpeg" onclick="printFunction()" style="margin-top: 2em;margin-left: 90em; width: 4em ;height: 4em">
+	
 
 <?php 
 $flag=0;
@@ -368,7 +369,9 @@ else
 
 </table>
 <br><br><br>
-
+<form action="/ResultAnalysis/final_draft/display1.php" method="post">
+<button class="btn btn-primary set2" name="submit_graph2" type="submit">Get Graph</button>
+</form >
 <div>
 <div style="float:left;">
 <h3 style="color:white; margin-left:2em">
