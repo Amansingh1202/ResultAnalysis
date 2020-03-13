@@ -391,6 +391,16 @@ HEAD OF DEPARTMENT
 		window.print();
 
 	}
+	
+	var passedarray=<?php echo json_encode($graph_array1); ?>;
+	for(var i=0;i<passedarray.length;i++)
+	{
+		console.log(passedarray[i]);
+		
+	}
+
+
+
 	</script>
 
 
