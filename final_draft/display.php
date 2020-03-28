@@ -4,7 +4,31 @@
 	<title></title>
 		<link rel="stylesheet" href="css/stylesheet2">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+<script type="text/javascript">
+function myGraph(){
 
+var chart = new CanvasJS.Chart("chartContainer", {
+	theme: "light1",
+	animationEnabled: false,		
+	title:{
+		text: "Subjectwise Comparison"
+	},
+	data: [
+	{
+		type: "column",
+		dataPoints: [
+			{ label: subjects[0],  y: passedarray[0]  },
+			{ label: subjects[1], y: passedarray[1]  },
+			{ label: subjects[2], y: passedarray[2]  },
+			{ label: subjects[3],  y: passedarray[3] },
+			{ label: subjects[4],  y: passedarray[4]  }
+		]
+	}
+	]
+});
+chart.render();
+
+}
 </head>
 <style>
 .center {
@@ -370,8 +394,11 @@ else
 </table>
 <br><br><br>
 <form action="/ResultAnalysis/final_draft/display1.php" method="post">
-<button class="btn btn-primary set2" name="submit_graph2" type="submit">Get Graph</button>
+<button class="btn btn-primary set2" name="submit_graph2" type="submit" onclick="myGraph()">Get Graph</button>
 </form >
+<div>
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+</div>
 <div>
 <div style="float:left;">
 <h3 style="color:white; margin-left:2em">
@@ -404,8 +431,8 @@ HEAD OF DEPARTMENT
 		
 	}
 
-
-
+	</script>
+	<script src="https://canvasjs.com/assets/script/canvasjs.min.js">
 	</script>
 
 
