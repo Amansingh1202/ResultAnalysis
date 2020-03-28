@@ -391,8 +391,13 @@ HEAD OF DEPARTMENT
 		window.print();
 
 	}
-	
+	var all_sem_subject=<?  echo json_encode($sub_array); ?>;
+	var sem=<? echo json_encode($sem); ?>;
+	var subjects=all_sem_subject[sem-3];
+	console.log(subjects)
+
 	var passedarray=<?php echo json_encode($graph_array1); ?>;
+	console.log(passedarray)
 	for(var i=0;i<passedarray.length;i++)
 	{
 		console.log(passedarray[i]);
