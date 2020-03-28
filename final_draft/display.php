@@ -394,11 +394,11 @@ else
 
 </table>
 <br><br><br>
-<button class="btn btn-primary set2" type="submit" onclick="myGraph()">Get Graph</button>
+<button class="btn btn-primary set2" type="submit" onclick="myGraph()" style="margin-left:50%;">Get Graph</button>
 <div>
 <div id="chartContainer" style="height: 370px; width: 100%;"></div>
 </div>
-<div>
+<div style="margin-top:8px;">
 <div style="float:left;">
 <h3 style="color:white; margin-left:2em">
 RESULT ANALYSIS CO-ORDINATOR
