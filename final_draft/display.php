@@ -17,11 +17,11 @@ var chart = new CanvasJS.Chart("chartContainer", {
 	{
 		type: "column",
 		dataPoints: [
-			{ label: subjects[0],  y: passedarray[0]  },
-			{ label: subjects[1], y: passedarray[1]  },
-			{ label: subjects[2], y: passedarray[2]  },
-			{ label: subjects[3],  y: passedarray[3] },
-			{ label: subjects[4],  y: passedarray[4]  }
+			{ label: subjects[0],  y: parseFloat(passedarray[0]) },
+			{ label: subjects[1], y: parseFloat(passedarray[1])  },
+			{ label: subjects[2], y: parseFloat(passedarray[2])  },
+			{ label: subjects[3],  y: parseFloat(passedarray[3]) },
+			{ label: subjects[4],  y: parseFloat(passedarray[4])  }
 		]
 	}
 	]
@@ -29,7 +29,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
 chart.render();
 
 }
-</style>
+</script>
 </head>
 <style>
 .center {
