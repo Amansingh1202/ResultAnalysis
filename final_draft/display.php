@@ -29,6 +29,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
 chart.render();
 
 }
+</style>
 </head>
 <style>
 .center {
@@ -393,9 +394,7 @@ else
 
 </table>
 <br><br><br>
-<form action="/ResultAnalysis/final_draft/display1.php" method="post">
-<button class="btn btn-primary set2" name="submit_graph2" type="submit" onclick="myGraph()">Get Graph</button>
-</form >
+<button class="btn btn-primary set2" type="submit" onclick="myGraph()">Get Graph</button>
 <div>
 <div id="chartContainer" style="height: 370px; width: 100%;"></div>
 </div>
