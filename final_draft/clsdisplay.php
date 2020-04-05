@@ -4,26 +4,7 @@
 	<title></title>
 		<link rel="stylesheet" href="css/stylesheet2">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-
-</head>
-<style>
-	.center {
-  margin: auto;
-  width: 50%;
-  border: 5px solid white;
-  padding: 10px;
-}
-table{
-	font-size:0.9em;
-}
-th,td{
-	padding:0.2em;
-}
-.grd{
-	font-size: 1.25em;
-}
-</style>
-<script type="text/javascript">
+    <script type="text/javascript">
 function myGraph(){
 
 var chart = new CanvasJS.Chart("chartContainer", {
@@ -49,7 +30,24 @@ chart.render();
 
 }
 </script>
-
+</head>
+<style>
+	.center {
+  margin: auto;
+  width: 50%;
+  border: 5px solid white;
+  padding: 10px;
+}
+table{
+	font-size:0.9em;
+}
+th,td{
+	padding:0.2em;
+}
+.grd{
+	font-size: 1.25em;
+}
+</style>
 <body>
 <img src="images/print.jpeg" onclick="printFunction()" style="margin-top: 2em;margin-left: 120em; width: 4em ;height: 4em">
 
@@ -332,6 +330,9 @@ else if($num_shift==2 && $sem_==2){
 </table>
 <br><br><br>
 <button class="btn btn-primary set2" type="submit" onclick="myGraph()" style="margin-left:50%;">Get Graph</button>
+<div>
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+</div>
 <div>
 <div style="float:left;">
 <h3 style="color:white; margin-left:2em">
