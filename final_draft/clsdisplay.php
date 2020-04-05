@@ -269,6 +269,35 @@ th,td{
 	{
 		echo"$graph_array[$j] ";
 	}
+
+if ($br=="I" || $br=="T")
+{
+	$num_shift=2;
+}
+else{
+	$num_shift=1;
+}
+if (strpos($e_date,"MAY")!== false){
+	$sem_=2;
+}
+else{
+$sem_=1;
+}
+
+if($num_shift==1 && $sem_==1){
+	$res_array=array("Sem3-First shift","Sem3-Second shift","Sem5-First shift","Sem5-Second shift","Sem7-First shift","Sem7-Second shift");
+}
+else if($num_shift==1 && $sem_==2){
+	$res_array=array("Sem4-First shift","Sem4-Second shift","Sem6-First shift","Sem6-Second shift","Sem8-First shift","Sem8-Second shift");
+}
+else if ($num_shift==2 && $sem_==1){
+		$res_array=array("Sem3-First shift","Sem5-First shift","Sem7-First shift");}
+else if($num_shift==2 && $sem_==2){
+		$res_array=array("Sem4-First shift","Sem6-First shift","Sem8-First shift");
+}
+
+
+
 ?>
 
 
@@ -298,5 +327,11 @@ HEAD OF DEPARTMENT
 		window.print();
 
 	}
+	var all_sem_subject=<?  echo json_encode($graph_array); ?>;
+	console.log(all_sem_subject)
+	var title=<? echo json_encode($res_array); ?>;
+	console.log(title)
+
 	</script>
 </html>
+
