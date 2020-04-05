@@ -23,6 +23,32 @@ th,td{
 	font-size: 1.25em;
 }
 </style>
+<script type="text/javascript">
+function myGraph(){
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	theme: "light1",
+	animationEnabled: false,		
+	title:{
+		text: "Classwise Comparison"
+	},
+	data: [
+	{
+		type: "column",
+		dataPoints: [
+			{ label: title[0],  y: parseFloat(all_sem_subject[0]) },
+			{ label: title[1], y: parseFloat(all_sem_subject[1])  },
+			{ label: title[2], y: parseFloat(all_sem_subject[2])  },
+			{ label: title[3],  y: parseFloat(all_sem_subject[3]) },
+			{ label: title[4],  y: parseFloat(all_sem_subject[4])  }
+		]
+	}
+	]
+});
+chart.render();
+
+}
+</script>
 
 <body>
 <img src="images/print.jpeg" onclick="printFunction()" style="margin-top: 2em;margin-left: 120em; width: 4em ;height: 4em">
@@ -305,9 +331,7 @@ else if($num_shift==2 && $sem_==2){
 
 </table>
 <br><br><br>
-<form action="/ResultAnalysis/final_draft/display2.php" method="post">
-<button class="btn btn-primary set2" name="submit_graph2" type="submit">Get Graph</button>
-</form >
+<button class="btn btn-primary set2" type="submit" onclick="myGraph()" style="margin-left:50%;">Get Graph</button>
 <div>
 <div style="float:left;">
 <h3 style="color:white; margin-left:2em">
@@ -332,6 +356,8 @@ HEAD OF DEPARTMENT
 	var title=<? echo json_encode($res_array); ?>;
 	console.log(title)
 
+	</script>
+	<script src="https://canvasjs.com/assets/script/canvasjs.min.js">
 	</script>
 </html>
 
