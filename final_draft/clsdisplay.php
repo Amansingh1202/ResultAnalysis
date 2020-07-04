@@ -4,8 +4,8 @@
 	<title></title>
 		<link rel="stylesheet" href="css/stylesheet2">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script type="text/javascript">
-function myGraph(){
+<script type="text/javascript">
+	function myGraph(){
 
 var chart = new CanvasJS.Chart("chartContainer", {
 	theme: "light1",
@@ -67,13 +67,15 @@ th,td{
 		<TH><h3>Total Pass %</h3></TH>
 	</tr>
 <?php
+
+
 		if(isset($_POST['submit']))
 	{
 		$br=$_POST["branch"];
 		$e_date=$_POST["e_date"];
 	}
-	$conn=mysqli_connect("localhost","root","new_password","project");
-	$graph_array[6];
+	$conn=mysqli_connect("localhost","root","","project");
+	// $graph_array[6];
 	$graph_array_count=0;
 	if ($conn ->connect_error)
 	{
@@ -199,7 +201,7 @@ th,td{
 			if($func_sem=='7' || $func_sem=='8')
 			{$cell=$row["TOTAL"];}
 			$marks=0;
-			for($i=0;$i<=strlen($cell);$i++)
+			for($i=0;$i<strlen($cell);$i++)
 			{
 				if (is_numeric($cell[$i])) {
 					$dig=(int)$cell[$i];
@@ -352,10 +354,14 @@ HEAD OF DEPARTMENT
 		window.print();
 
 	}
-	var all_sem_subject=<?  echo json_encode($graph_array); ?>;
-	console.log(all_sem_subject)
-	var title=<? echo json_encode($res_array); ?>;
+	var all_sem_subject= <?php  echo json_encode($graph_array); ?>;
+	console.log(all_sem_subject);
+	var title=<?php echo json_encode($res_array); ?>;
 	console.log(title)
+
+	
+
+
 
 	</script>
 	<script src="https://canvasjs.com/assets/script/canvasjs.min.js">

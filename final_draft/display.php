@@ -51,11 +51,12 @@ table{
 
 </style>
 <body>
-	<img src="images/print.jpeg" onclick="printFunction()" style="margin-top: 2em;margin-left: 90em; width: 4em ;height: 4em">
+	<img src="images/print.jpeg" onclick="printFunction()" style="margin-top: 2em;margin-left: 90em; width: 4em ;height: 4em;">
 	
 
 <?php 
 $flag=0;
+// error_reporting(E_ERROR | E_PARSE);
 if (isset($_POST['submit']))
 	{
 		$br=$_POST['branch'];
@@ -66,13 +67,13 @@ if (isset($_POST['submit']))
 
 	}
 
-	$conn=mysqli_connect("localhost","root", "new_password","project");
+	$conn=mysqli_connect("localhost","root", "","project");
 
 	if($conn -> connect_error)
 	{
 		die("Connection error".$conn -> connect_error);
 	}
-$sub_array[6][5];
+// $sub_array[6][5];
 if($br=="T")
 		{
 			$sub_array= array(
@@ -158,7 +159,8 @@ if($br=="T")
 
 	function first_two_year($conn1,$br1,$sem1,$shft1,$date1,$sub_array)
 	{
-		$graph_array[5];
+		// $graph_array[5];
+		global $br_name;
 		$initial_check="SELECT S1WMS FROM project where BRANCH='$br1' AND SEMESTER='$sem1' AND SHIFT='$shft1'and NOT S1WMS='ABS' and E_DATE='$date1' ";
 	$initial_res=$conn1-> query($initial_check);
 	$var1=$initial_res->num_rows;
@@ -217,7 +219,7 @@ else
 		while ($row=$res1->fetch_assoc()) {
 			$cell=$row["$attribute"];
 			$marks=0;
-			for($i=0;$i<=strlen($cell);$i++)
+			for($i=0;$i<strlen($cell);$i++)
 			{
 				if (is_numeric($cell[$i])) {
 					$dig=(int)$cell[$i];
@@ -365,7 +367,7 @@ else
 	}
 }
 
-	if ($sem=="SEMESTER" || $br=="BRANCH" || $shft=="SHIFT" || $E_DATE=="EXAM DATE")
+	if ($sem=="SEMESTER" || $br=="BRANCH" || $shft=="SHIFT" || $date=="EXAM DATE")
 	{
 		$flag=1;
 		echo "<h3 style='color:white;' align='center'>NO RESULT FOR THE SELECTED OPTIONS<BR>TRY AGAIN WITH VALID OPTIONS</h3>";
@@ -374,7 +376,7 @@ else
 
 	if(($sem=="3" || $sem=="4" || $sem=="5" || $sem=="6") && $flag==0)
 	{
-		$graph_array1[5];
+		// $graph_array1[5];
 		$graph_array1= first_two_year($conn,$br,$sem,$shft,$date,$sub_array);
 		for($j=0;$j<5;$j++)
 	{
@@ -417,13 +419,15 @@ HEAD OF DEPARTMENT
 		window.print();
 
 	}
-	var all_sem_subject=<?  echo json_encode($sub_array); ?>;
-	var sem=<? echo json_encode($sem); ?>;
-	var subjects=all_sem_subject[sem-3];
-	console.log(subjects)
+
+
+	var all_sem_subject=<?php  echo json_encode($sub_array); ?>;
+	var sem=<?php echo json_encode($sem); ?>;
+	var subjects=all_sem_subject[sem-3]
+	console.log(subjects);
 
 	var passedarray=<?php echo json_encode($graph_array1); ?>;
-	console.log(passedarray)
+	console.log(passedarray);
 	for(var i=0;i<passedarray.length;i++)
 	{
 		console.log(passedarray[i]);
