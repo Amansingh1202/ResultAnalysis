@@ -67,7 +67,7 @@ th,td{
 		<TH><h3>Total Pass %</h3></TH>
 	</tr>
 <?php
-
+	error_reporting(0);
 
 		if(isset($_POST['submit']))
 	{

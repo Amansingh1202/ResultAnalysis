@@ -56,7 +56,7 @@ table{
 
 <?php 
 $flag=0;
-// error_reporting(E_ERROR | E_PARSE);
+error_reporting(E_ERROR | E_PARSE);
 if (isset($_POST['submit']))
 	{
 		$br=$_POST['branch'];
