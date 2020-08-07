@@ -11,7 +11,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
 	theme: "light1",
 	animationEnabled: false,		
 	title:{
-		text: "Classwise Comparison"
+		text: "Classwise Analysis"
 	},
 	data: [
 	{
@@ -50,9 +50,17 @@ th,td{
 </style>
 <body>
 <img src="images/print.jpeg" onclick="printFunction()" style="margin-top: 2em;margin-left: 120em; width: 4em ;height: 4em">
+<?php 
+error_reporting(0);
 
+		if(isset($_POST['submit']))
+	{
+		$br=$_POST["branch"];
+		$e_date=$_POST["e_date"];
+	}
+?> 
 <h1 align="center"><font color="white">
-	CLASS WISE RESULT ANALYSIS</font>
+	CLASS WISE RESULT ANALYSIS (<?php echo "$e_date"; ?>)</font>
 </h1>
 <table border="2" class="center" style="margin-bottom:2em">
 	<tr>
@@ -67,13 +75,7 @@ th,td{
 		<TH><h3>Total Pass %</h3></TH>
 	</tr>
 <?php
-	error_reporting(0);
-
-		if(isset($_POST['submit']))
-	{
-		$br=$_POST["branch"];
-		$e_date=$_POST["e_date"];
-	}
+	
 	$conn=mysqli_connect("localhost","root","","project");
 	// $graph_array[6];
 	$graph_array_count=0;
@@ -291,10 +293,10 @@ th,td{
 	$graph_array[$graph_array_count++]=sub_wise($conn,$br,$e_date,$sem_array[2],1);
 	if($shift==2)
 	$graph_array[$graph_array_count++]=sub_wise($conn,$br,$e_date,$sem_array[2],2);
-	for($j=0;$j<$graph_array_count;$j++)
-	{
-		echo"$graph_array[$j] ";
-	}
+	// for($j=0;$j<$graph_array_count;$j++)
+	// {
+	// 	echo"$graph_array[$j] ";
+	// }
 
 if ($br=="I" || $br=="T")
 {

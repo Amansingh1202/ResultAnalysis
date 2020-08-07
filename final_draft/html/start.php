@@ -8,6 +8,34 @@
     <script src="jquery-1.4.4.min.js"></script>
 </head>
 <body>
+<?php 
+@session_start();
+if($_SESSION['is_verified']==false)
+{
+    echo "<script>alert('Unauthorized Access.Login REquired')</script>";
+    header("Location:../login.php");
+}
+else{
+    if($_SESSION['user']=="student")
+    {
+        $username=$_SESSION['username'];
+        $roll_no=$_SESSION['roll_no'];
+        echo "$username $roll_no";
+    }
+    elseif ($_SESSION['user']=='faculty') {
+        $username=$_SESSION['username'];
+        $sdrn=$_SESSION['sdrn'];
+        echo "$username $sdrn";
+    }
+}
+
+
+?>
+
+
+
+
+
 <div class="container-fluid form-group" id="semesterWise">
     <form action="/ResultAnalysis/final_draft/display.php" action="start.php" id='ResultForm' method="post">
         <h1 align="center">Subject Wise Result Analysis</h1>

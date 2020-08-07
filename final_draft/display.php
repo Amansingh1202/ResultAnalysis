@@ -11,7 +11,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
 	theme: "light1",
 	animationEnabled: false,		
 	title:{
-		text: "Subjectwise Comparison"
+		text: "Subjectwise Analysis"
 	},
 	data: [
 	{
@@ -50,9 +50,10 @@ table{
 }
 
 </style>
-<body>
+<!-- <body>
 	<img src="images/print.jpeg" onclick="printFunction()" style="margin-top: 2em;margin-left: 90em; width: 4em ;height: 4em;">
-	
+<h1 align="center"><font color="white"> -->
+	SUBJECT WISE RESULT ANALYSIS</font></h1>	
 
 <?php 
 $flag=0;
@@ -66,6 +67,11 @@ if (isset($_POST['submit']))
 
 
 	}
+
+	echo '<img src="images/print.jpeg" onclick="printFunction()" style="margin-top: 2em;margin-left: 90em; width: 4em ;height: 4em;">
+<h1 align="center"><font color="white">
+	SUBJECT WISE RESULT ANALYSIS  ('.$date.') </font></h1>';
+
 
 	$conn=mysqli_connect("localhost","root", "","project");
 
@@ -378,10 +384,7 @@ else
 	{
 		// $graph_array1[5];
 		$graph_array1= first_two_year($conn,$br,$sem,$shft,$date,$sub_array);
-		for($j=0;$j<5;$j++)
-	{
-		echo"$graph_array1[$j] ";
-	}
+	
 	}
 
 	else if (($sem=="7" || $sem=="8") && $flag==0)
