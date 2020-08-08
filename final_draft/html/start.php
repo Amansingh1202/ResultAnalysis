@@ -18,9 +18,7 @@ if($_SESSION['is_verified']==false)
 else{
     if($_SESSION['user']=="student")
     {
-        $username=$_SESSION['username'];
-        $roll_no=$_SESSION['roll_no'];
-        echo "$username $roll_no";
+        header("Location:student.php");
     }
     elseif ($_SESSION['user']=='faculty') {
         $username=$_SESSION['username'];
@@ -121,6 +119,38 @@ else{
         </div>
 
     </form>
+
+    <form action="/ResultAnalysis/final_draft/topper.php" method="post">
+        <h1 align="center">Toppers List</h1>
+        <div class="row">
+            <div class="col-lg-2 col-md-2">
+                <label for="FormSelect1">BRANCH</label>
+                <select class="form-control" id="FormSelect1" name="branch">
+                    <option selected value="BRANCH">BRANCH</option>
+                    <option value="C">Computer Science</option>
+                    <option value="T">Information n Technology</option>
+                    <option value="X">Elec n Telecomm</option>
+                    <option value="E">Electronics</option>
+                    <option value="I">Instrumentaion</option>
+                </select><br>
+            </div>
+
+
+            <div class="col-lg-2 col-md-2">
+                <label for="FormSelect4">EXAM DATE</label>
+                <select class="form-control" id="FormSelect4" name="e_date">
+                    <option selected value="EXAM DATE">EXAM DATE</option>
+                    <option value="MAY-18">MAY-2018</option>
+                    <option value="NOV-17">NOVEMBER-2017</option>
+                </select><br>
+            </div>
+            <div class="col-lg-2 col-md-2 group2">
+                <button class="btn btn-primary set2" name="submit" type="submit">Get Values</button>
+            </div>
+        </div>
+
+    </form>
+
 
 
 </div>

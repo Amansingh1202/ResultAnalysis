@@ -58,6 +58,25 @@ table{
 <?php 
 $flag=0;
 error_reporting(E_ERROR | E_PARSE);
+
+@session_start();
+if($_SESSION['is_verified']==false)
+{
+    echo "<script>alert('Unauthorized Access.Login REquired')</script>";
+    header("Location:../login.php");
+}
+else{
+    if($_SESSION['user']=="student")
+    {
+        header("Location:student.php");
+    }
+    elseif ($_SESSION['user']=='faculty') {
+        $username=$_SESSION['username'];
+        $sdrn=$_SESSION['sdrn'];
+        echo "$username $sdrn";
+    }
+}
+
 if (isset($_POST['submit']))
 	{
 		$br=$_POST['branch'];

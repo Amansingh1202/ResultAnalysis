@@ -121,7 +121,7 @@
 			$_SESSION['roll_no']=$roll_no;
 			$_SESSION['user']="student";
 			echo "<script>alert('Successfully Logged In')</script>";
-			header('Location:html/start.php');
+			header('Location:html/student.php');
 		}
 		else
 		{

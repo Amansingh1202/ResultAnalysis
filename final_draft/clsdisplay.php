@@ -76,6 +76,24 @@ error_reporting(0);
 	</tr>
 <?php
 	
+	@session_start();
+	if($_SESSION['is_verified']==false)
+	{
+		echo "<script>alert('Unauthorized Access.Login REquired')</script>";
+		header("Location:../login.php");
+	}
+	else{
+		if($_SESSION['user']=="student")
+		{
+			header("Location:student.php");
+		}
+		elseif ($_SESSION['user']=='faculty') {
+			$username=$_SESSION['username'];
+			$sdrn=$_SESSION['sdrn'];
+			echo "$username $sdrn";
+		}
+	}
+
 	$conn=mysqli_connect("localhost","root","","project");
 	// $graph_array[6];
 	$graph_array_count=0;
