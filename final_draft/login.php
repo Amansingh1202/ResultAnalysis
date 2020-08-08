@@ -3,44 +3,71 @@
 <head>
 	<title>Login</title>
 </head>
+<style>
+.container{
+	margin-top:15%;
+	margin-left:20%;
+}
+.label{
+	color:grey;
+	font-size:1.2em;
+	font-family:sans-serif;
+}
+.heading{
+	color:indianred;
+	font-size:1.1em;
+}
+.btn{
+	background-color: #1b6d85;
+	padding:5px 8px 5px 8px;
+	color:white;
+	border-radius:5px;
+}
+
+.btn:hover {
+    background-color: #5bc0de;
+    color: black;
+}
+</style>
 <body>
-
+<div class="container">
 	<div>
-		<label>SignUp For Students</label>
+		<label class="label">SignUp For Students:</label>
 		<form action="#" method="POST">
-			<label for="username">Username:</label>
+			<label class="heading" for="username">Username:</label>
 			<input type="text" name="username" placeholder="Enter username" id="username" required>
-			<label for="roll_no">Roll No:</label>
+			<label class="heading" for="roll_no">Roll No:</label>
 			<input type="text" name="roll_no" placeholder="Enter Roll No" id="roll_no" required>
-			<label for="password">Password:</label>
+			<label class="heading" for="password">Password:</label>
 			<input type="password" name="password" placeholder="Enter Password" id="password" required="">
-			<input type="submit" name="sign_up" value="SignUp">
+			<input class="btn" type="submit" name="sign_up" value="SignUp">
 
 		</form>
 	</div>
 <br>
 
 	<div>
-		<label>Login for Students</label>
+		<label class="label">Login for Students:</label>
 		<form action="#" method="POST">
-			<label for="username">Username:</label>
+			<label class="heading" for="username">Username:</label>
 			<input type="text" name="username" placeholder="Enter Username" id="username" required>
-			<label for="password">Password</label>
+			<label class="heading" for="password">Password</label>
 			<input type="password" name="password" placeholder="Enter Password" id="password" required>
-			<input type="submit" name="login_student" value="Student Login">
+			<input class="btn" type="submit" name="login_student" value="Student Login">
 		</form>
 	</div>
 <br>
 
 	<div>
-		<label>Login For Faculty</label>
+		<label class="label">Login For Faculty:</label>
 		<form action="#" method="POST">
-			<label for="sdrn">SDRN</label>
+			<label class="heading" for="sdrn">SDRN</label>
 			<input type="text" name="sdrn" placeholder="Enter SDRN" id="sdrn" required>
-			<label for="password" >Password</label>
+			<label class="heading" for="password" >Password</label>
 			<input type="password" name="password" placeholder="Enter Password" id="password" required>
-			<input type="submit" name="login_faculty" value="Faculty Login">
+			<input class="btn" type="submit" name="login_faculty" value="Faculty Login">
 		</form>
+	</div>
 	</div>
 <?php 
 	@session_start();
