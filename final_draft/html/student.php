@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+
+#header{
+  color:grey;
+  font-size: 1.6em;
+  font-family: sans-serif;
+  margin-bottom: 5%;
+}
+.tbl{
+  border-collapse: collapse;
+  border-width: 3px;
+}
+th,td{
+  padding: 6px;
+}
+</style>
 <body>
     <?php 
     @session_start();
@@ -19,7 +35,7 @@
     }
     $username=$_SESSION["username"];
     $roll_no=$_SESSION["roll_no"];
-    echo "Hello $username $roll_no";
+    echo "<h1 id='header'>Hello $username $roll_no</h1>";
     $conn=mysqli_connect("localhost","root","","project");
     if($conn -> connect_error)
 	{
@@ -35,7 +51,7 @@
         $name_assoc=mysqli_fetch_assoc($name_res);
         $name=$name_assoc['NAME'];
  ?>
- <table border="1">
+ <table border="1" class="tbl">
  <thead>
  <th>Name</th>
  <th>Roll No</th>
