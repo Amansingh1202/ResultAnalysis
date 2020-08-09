@@ -145,7 +145,7 @@ else{
                 </select><br>
             </div>
             <div class="col-lg-2 col-md-2 group2">
-                <button class="btn btn-primary set2" name="submit" type="submit">Get Values</button>
+                <button class="btn btn-primary set2" name="topper_submit" type="submit">Get Values</button>
             </div>
         </div>
 

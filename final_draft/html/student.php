@@ -59,19 +59,33 @@ th,td{
  <th>Exam Date</th>
  <th>Semester</th>
  <th>S1WMS</th>
+ <th>S2WMS</th>
+ <th>S3WMS</th>
+ <th>S4WMS</th>
+ <th>S5TMS</th>
  </thead>
  <?php 
  $query="select * from project where NAME='$name' ";
  $res=mysqli_query($conn,$query);
  while($row=mysqli_fetch_array($res))
         {
+          $S1WMS=$row['S1WMS'];
+          $S2WMS=$row['S2WMS'];
+          $S3WMS=$row['S3WMS'];
+          $S4WMS=$row['S4WMS'];
+          $S5TMS=$row['S5TMS'];
+
             echo "<tr>
             <td>$row[2]</td>
             <td>$row[0]</td>
             <td>$row[3]</td>
             <td>$row[4]</td>
             <td>$row[5]</td>
-            <td>$row[8]</td>
+            <td>$S1WMS</td>
+            <td>$S2WMS</td>
+            <td>$S3WMS</td>
+            <td>$S4WMS</td>
+            <td>$S5TMS</td>
             </tr>";
         }
 
