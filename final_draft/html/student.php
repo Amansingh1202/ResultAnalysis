@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Student Result</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+		<link rel="stylesheet" href="../css/stylesheet2.css">
 </head>
 <style>
 
 #header{
-  color:grey;
+  color:wheat;
   font-size: 1.6em;
   font-family: sans-serif;
   margin-bottom: 5%;
@@ -51,6 +53,7 @@ th,td{
         $name_assoc=mysqli_fetch_assoc($name_res);
         $name=$name_assoc['NAME'];
  ?>
+ <img src="../images/print.jpeg" onclick="printFunction()" style="margin-top: -10%;margin-left: 90em; width: 4em ;height: 4em">
  <table border="1" class="tbl">
  <thead>
  <th>Name</th>

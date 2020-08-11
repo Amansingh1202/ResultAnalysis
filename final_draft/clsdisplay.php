@@ -1,9 +1,9 @@
  <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-		<link rel="stylesheet" href="css/stylesheet2">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+	<title>Class Wise Result Analysis</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/stylesheet2.css">
 <script type="text/javascript">
 	function myGraph(){
 
@@ -49,7 +49,7 @@ th,td{
 }
 </style>
 <body>
-<img src="images/print.jpeg" onclick="printFunction()" style="margin-top: 2em;margin-left: 120em; width: 4em ;height: 4em">
+<img src="images/print.jpeg" onclick="printFunction()" style="margin-top: 2em;margin-left: 70%; width: 4em ;height: 4em">
 <?php 
 error_reporting(0);
 
@@ -90,7 +90,6 @@ error_reporting(0);
 		elseif ($_SESSION['user']=='faculty') {
 			$username=$_SESSION['username'];
 			$sdrn=$_SESSION['sdrn'];
-			echo "$username $sdrn";
 		}
 	}
 
@@ -375,9 +374,7 @@ HEAD OF DEPARTMENT
 
 	}
 	var all_sem_subject= <?php  echo json_encode($graph_array); ?>;
-	console.log(all_sem_subject);
 	var title=<?php echo json_encode($res_array); ?>;
-	console.log(title)
 
 	
 

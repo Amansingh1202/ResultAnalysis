@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-		<link rel="stylesheet" href="css/stylesheet2">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+	<title>Subject Wise Result Analysis</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/stylesheet2.css">
 <script type="text/javascript">
 function myGraph(){
 
@@ -73,7 +73,6 @@ else{
     elseif ($_SESSION['user']=='faculty') {
         $username=$_SESSION['username'];
         $sdrn=$_SESSION['sdrn'];
-        echo "$username $sdrn";
     }
 }
 
@@ -87,7 +86,7 @@ if (isset($_POST['submit']))
 
 	}
 
-	echo '<img src="images/print.jpeg" onclick="printFunction()" style="margin-top: 2em;margin-left: 90em; width: 4em ;height: 4em;">
+	echo '<img src="images/print.jpeg" onclick="printFunction()" style="margin-top: 2em;margin-left: 70%; width: 4em ;height: 4em;">
 <h1 align="center"><font color="white">
 	SUBJECT WISE RESULT ANALYSIS  ('.$date.') </font></h1>';
 
@@ -446,13 +445,10 @@ HEAD OF DEPARTMENT
 	var all_sem_subject=<?php  echo json_encode($sub_array); ?>;
 	var sem=<?php echo json_encode($sem); ?>;
 	var subjects=all_sem_subject[sem-3]
-	console.log(subjects);
 
 	var passedarray=<?php echo json_encode($graph_array1); ?>;
-	console.log(passedarray);
 	for(var i=0;i<passedarray.length;i++)
 	{
-		console.log(passedarray[i]);
 		
 	}
 

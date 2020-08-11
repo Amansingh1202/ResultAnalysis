@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Toppers List</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/stylesheet2.css">
 </head>
 <body>
     <?php 
@@ -21,7 +23,6 @@
         elseif ($_SESSION['user']=='faculty') {
             $username=$_SESSION['username'];
             $sdrn=$_SESSION['sdrn'];
-            echo "$username $sdrn";
         }
     }
     $conn=mysqli_connect("localhost","root","","project");
@@ -37,7 +38,8 @@
     else{
         $br="";
         $e_date="";
-    }
+    };
+    echo "<img src='images/print.jpeg' onclick='printFunction()'' style='margin-top: 2em;margin-left: 70%; width: 4em ;height: 4em'>";
     for($i=3;$i<=6;$i++)
     {
         $query="select * from project where SEMESTER='$i' and E_DATE='$e_date' and BRANCH='$br' and SUB_CODE='all' order by C_SG_TOTAL desc limit 10 ";
@@ -64,4 +66,11 @@
     
     ?>
 </body>
+<script>
+function printFunction() {
+
+window.print();
+
+}
+</script>
 </html>
