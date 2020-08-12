@@ -2,32 +2,28 @@
 <html>
 <head>
 	<title>Login</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/stylesheet2.css">
 </head>
 <style>
-.container{
+ .container{
 	margin-top:15%;
 	margin-left:20%;
 }
 .label{
-	color:grey;
-	font-size:1.2em;
+	color:white;
+	font-size:1.4em;
 	font-family:sans-serif;
 }
 .heading{
-	color:indianred;
-	font-size:1.1em;
-}
-.btn{
-	background-color: #1b6d85;
-	padding:5px 8px 5px 8px;
-	color:white;
-	border-radius:5px;
+	color:wheat;
+	font-size:1.2em;
 }
 
 .btn:hover {
     background-color: #5bc0de;
     color: black;
-}
+} 
 </style>
 <body>
 <div class="container">
